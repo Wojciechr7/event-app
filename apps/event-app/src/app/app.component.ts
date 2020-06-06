@@ -9,5 +9,6 @@ import { Message } from '@event-app/api-interfaces';
 })
 export class AppComponent {
   hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 }
