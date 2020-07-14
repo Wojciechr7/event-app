@@ -1,5 +1,6 @@
 {
   "name": "event-app",
+  "gcm_sender_id": "592137199642",
   "short_name": "event-app",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",

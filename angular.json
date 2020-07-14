@@ -12,6 +12,20 @@
       "sourceRoot": "apps/event-app/src",
       "prefix": "event-app",
       "architect": {
+        "serve-with-services": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "ng serve api"
+              },
+              {
+                "command": "ng serve event-app"
+              }
+            ],
+            "parallel": true
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -24,7 +38,8 @@
             "assets": [
               "apps/event-app/src/favicon.ico",
               "apps/event-app/src/assets",
-              "apps/event-app/src/manifest.webmanifest"
+              "apps/event-app/src/manifest.webmanifest",
+              "apps/event-app/src/firebase-messaging-sw.js"
             ],
             "styles": ["apps/event-app/src/styles.scss"],
             "scripts": []
@@ -204,6 +219,32 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "base": {
+      "root": "libs/base",
+      "sourceRoot": "libs/base/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/base/tsconfig.lib.json",
+              "libs/base/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/base/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/base/jest.config.js",
+            "tsConfig": "libs/base/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
