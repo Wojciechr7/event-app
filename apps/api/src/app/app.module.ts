@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
-
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MongooseModule } from "@nestjs/mongoose";
+import { EventModule } from "./modules/event/event.module";
 
 @Module({
-  imports: [],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/event-app'),
+    EventModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
