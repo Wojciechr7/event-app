@@ -1,3 +1,4 @@
+/*
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
@@ -14,3 +15,4 @@ export class Event extends Document {
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);
+*/

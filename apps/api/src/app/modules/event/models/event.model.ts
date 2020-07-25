@@ -1,3 +1,4 @@
+/*
 import { Document } from 'mongoose';
 
 export interface EventModel extends Document {
@@ -5,3 +6,4 @@ export interface EventModel extends Document {
   date: Date;
   condition: string;
 }
+*/

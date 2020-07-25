@@ -81,197 +81,27 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("tslib");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("@nestjs/common");
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("@nestjs/mongoose");
-
-/***/ }),
-/* 3 */
+/***/ "./apps/api/src/app/app.controller.ts":
+/*!********************************************!*\
+  !*** ./apps/api/src/app/app.controller.ts ***!
+  \********************************************/
+/*! exports provided: AppController */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppController", function() { return AppController; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-
-
-let AppService = class AppService {
-    getData() {
-        return { message: 'Welcome to api!' };
-    }
-};
-AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], AppService);
-
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__);
-var _a, _b;
-
-
-
-
-
-let EventService = class EventService {
-    constructor(eventModel, httpService) {
-        this.eventModel = eventModel;
-        this.httpService = httpService;
-    }
-    getAllEvents() {
-        return 'test';
-    }
-    addEvent(createEventDTO) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const newEvent = yield new this.eventModel(createEventDTO);
-            this.httpService.post('https://fcm.googleapis.com/fcm/send', {
-                "notification": {
-                    "title": "cześć",
-                    "body": "tu robcio :) v2"
-                },
-                "to": "/topics/all"
-            }, {
-                headers: {
-                    "Authorization": "key=AAAAid4goBo:APA91bHTYuLboDJ-fMDVvPoIJXmbQKoNVk_71kX62XGov3iYIyw6AvcXyMczeGS2GxKOINPfFDTyb98EQ-9h_Qf3HqV3if3bfHz4qn7XwT9vBAp8iu_epHWP8uQRoOs28H_mmBOx3mJq",
-                    "Content-Type": "application/json"
-                }
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(e => {
-                console.log(e);
-                return e;
-            }))
-                .subscribe(v => {
-                console.log(v);
-            });
-            return newEvent.save();
-        });
-    }
-};
-EventService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3__["InjectModel"])('Event')),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_a = typeof mongoose__WEBPACK_IMPORTED_MODULE_2__["Model"] !== "undefined" && mongoose__WEBPACK_IMPORTED_MODULE_2__["Model"]) === "function" ? _a : Object, typeof (_b = typeof _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpService"] !== "undefined" && _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpService"]) === "function" ? _b : Object])
-], EventService);
-
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("mongoose");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
-/* harmony import */ var _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (checked) */ if(__webpack_require__.o(_lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__, "Message")) __webpack_require__.d(__webpack_exports__, "Message", function() { return _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__["Message"]; });
-
-
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports = require("@nestjs/core");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
-/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_event_event_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
-
-
-
-
-
-
-let AppModule = class AppModule {
-};
-AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
-        imports: [
-            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__["MongooseModule"].forRoot('mongodb://localhost/event-app'),
-            _modules_event_event_module__WEBPACK_IMPORTED_MODULE_5__[/* EventModule */ "a"]
-        ],
-        controllers: [_app_controller__WEBPACK_IMPORTED_MODULE_2__[/* AppController */ "a"]],
-        providers: [_app_service__WEBPACK_IMPORTED_MODULE_3__[/* AppService */ "a"]],
-    })
-], AppModule);
-
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppController; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _event_app_api_interfaces__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
+/* harmony import */ var _event_app_api_interfaces__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @event-app/api-interfaces */ "./libs/api-interfaces/src/index.ts");
+/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.service */ "./apps/api/src/app/app.service.ts");
 var _a, _b;
 
 
@@ -293,59 +123,97 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], AppController.prototype, "getData", null);
 AppController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_b = typeof _app_service__WEBPACK_IMPORTED_MODULE_3__[/* AppService */ "a"] !== "undefined" && _app_service__WEBPACK_IMPORTED_MODULE_3__[/* AppService */ "a"]) === "function" ? _b : Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_b = typeof _app_service__WEBPACK_IMPORTED_MODULE_3__["AppService"] !== "undefined" && _app_service__WEBPACK_IMPORTED_MODULE_3__["AppService"]) === "function" ? _b : Object])
 ], AppController);
 
 
 
 /***/ }),
-/* 12 */
+
+/***/ "./apps/api/src/app/app.module.ts":
+/*!****************************************!*\
+  !*** ./apps/api/src/app/app.module.ts ***!
+  \****************************************/
+/*! exports provided: AppModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _controllers_event_event_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var _services_event_event_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _schemas_event_schema__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
+/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.controller */ "./apps/api/src/app/app.controller.ts");
+/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.service */ "./apps/api/src/app/app.service.ts");
+/* harmony import */ var _modules_event_event_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/event/event.module */ "./apps/api/src/app/modules/event/event.module.ts");
 
 
 
 
 
-
-let EventModule = class EventModule {
+let AppModule = class AppModule {
 };
-EventModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [
-            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__["MongooseModule"].forFeature([{ name: 'Event', schema: _schemas_event_schema__WEBPACK_IMPORTED_MODULE_5__[/* EventSchema */ "a"] }]),
-            _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpModule"]
+            //MongooseModule.forRoot('mongodb://localhost/event-app'),
+            _modules_event_event_module__WEBPACK_IMPORTED_MODULE_4__["EventModule"]
         ],
-        controllers: [_controllers_event_event_controller__WEBPACK_IMPORTED_MODULE_2__[/* EventController */ "a"]],
-        providers: [_services_event_event_service__WEBPACK_IMPORTED_MODULE_3__[/* EventService */ "a"]]
+        controllers: [_app_controller__WEBPACK_IMPORTED_MODULE_2__["AppController"]],
+        providers: [_app_service__WEBPACK_IMPORTED_MODULE_3__["AppService"]],
     })
-], EventModule);
+], AppModule);
 
 
 
 /***/ }),
-/* 13 */
+
+/***/ "./apps/api/src/app/app.service.ts":
+/*!*****************************************!*\
+  !*** ./apps/api/src/app/app.service.ts ***!
+  \*****************************************/
+/*! exports provided: AppService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventController; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppService", function() { return AppService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+
+
+let AppService = class AppService {
+    getData() {
+        return { message: 'Welcome to api!' };
+    }
+};
+AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AppService);
+
+
+
+/***/ }),
+
+/***/ "./apps/api/src/app/modules/event/controllers/event/event.controller.ts":
+/*!******************************************************************************!*\
+  !*** ./apps/api/src/app/modules/event/controllers/event/event.controller.ts ***!
+  \******************************************************************************/
+/*! exports provided: EventController */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventController", function() { return EventController; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/event/event.service */ "./apps/api/src/app/modules/event/services/event/event.service.ts");
+/* harmony import */ var _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../libs/api-interfaces/src/lib/dto/create-event.dto */ "./libs/api-interfaces/src/lib/dto/create-event.dto.ts");
 /* harmony import */ var _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__);
 var _a, _b;
 
@@ -384,82 +252,138 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], EventController.prototype, "addEvent", null);
 EventController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('event'),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_b = typeof _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__[/* EventService */ "a"] !== "undefined" && _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__[/* EventService */ "a"]) === "function" ? _b : Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_b = typeof _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"] !== "undefined" && _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"]) === "function" ? _b : Object])
 ], EventController);
 
 
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
 
-module.exports = require("rxjs/operators");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Event */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventSchema; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_2__);
-var _a;
-
-
-
-let Event = class Event extends mongoose__WEBPACK_IMPORTED_MODULE_2__["Document"] {
-};
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__["Prop"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
-], Event.prototype, "name", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__["Prop"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
-], Event.prototype, "date", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__["Prop"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
-], Event.prototype, "condition", void 0);
-Event = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__["Schema"])()
-], Event);
-
-const EventSchema = _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_1__["SchemaFactory"].createForClass(Event);
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(17);
-
-
-/***/ }),
-/* 17 */
+/***/ "./apps/api/src/app/modules/event/event.module.ts":
+/*!********************************************************!*\
+  !*** ./apps/api/src/app/modules/event/event.module.ts ***!
+  \********************************************************/
+/*! exports provided: EventModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventModule", function() { return EventModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
+/* harmony import */ var _controllers_event_event_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controllers/event/event.controller */ "./apps/api/src/app/modules/event/controllers/event/event.controller.ts");
+/* harmony import */ var _services_event_event_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/event/event.service */ "./apps/api/src/app/modules/event/services/event/event.service.ts");
+
+
+
+
+let EventModule = class EventModule {
+};
+EventModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        imports: [
+            //MongooseModule.forFeature([{ name: 'Event', schema: EventSchema }]),
+            _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpModule"]
+        ],
+        controllers: [_controllers_event_event_controller__WEBPACK_IMPORTED_MODULE_2__["EventController"]],
+        providers: [_services_event_event_service__WEBPACK_IMPORTED_MODULE_3__["EventService"]]
+    })
+], EventModule);
+
+
+
+/***/ }),
+
+/***/ "./apps/api/src/app/modules/event/services/event/event.service.ts":
+/*!************************************************************************!*\
+  !*** ./apps/api/src/app/modules/event/services/event/event.service.ts ***!
+  \************************************************************************/
+/*! exports provided: EventService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventService", function() { return EventService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__);
+var _a;
+
+
+
+let EventService = class EventService {
+    constructor(
+    //@InjectModel('Event') private readonly eventModel: Model<EventModel>,
+    httpService) {
+        this.httpService = httpService;
+    }
+    getAllEvents() {
+        return 'test';
+    }
+    //async addEvent(createEventDTO: CreateEventDTO): Promise<EventModel> {
+    addEvent(createEventDTO) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //const newEvent = await new this.eventModel(createEventDTO);
+            this.httpService.post('https://fcm.googleapis.com/fcm/send', {
+                "notification": {
+                    "title": "cześć",
+                    "body": "tu robcio :) v2"
+                },
+                "to": "/topics/all"
+            }, {
+                headers: {
+                    "Authorization": "key=AAAAid4goBo:APA91bHTYuLboDJ-fMDVvPoIJXmbQKoNVk_71kX62XGov3iYIyw6AvcXyMczeGS2GxKOINPfFDTyb98EQ-9h_Qf3HqV3if3bfHz4qn7XwT9vBAp8iu_epHWP8uQRoOs28H_mmBOx3mJq",
+                    "Content-Type": "application/json"
+                }
+            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(e => {
+                console.log(e);
+                return e;
+            }))
+                .subscribe(v => {
+                console.log(v);
+            });
+            return 'done';
+            //return newEvent.save();
+        });
+    }
+};
+EventService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_a = typeof _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpService"] !== "undefined" && _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpService"]) === "function" ? _a : Object])
+], EventService);
+
+
+
+/***/ }),
+
+/***/ "./apps/api/src/main.ts":
+/*!******************************!*\
+  !*** ./apps/api/src/main.ts ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
 /* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./apps/api/src/app/app.module.ts");
 
 
 
 
 function bootstrap() {
     return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-        const app = yield _nestjs_core__WEBPACK_IMPORTED_MODULE_2__["NestFactory"].create(_app_app_module__WEBPACK_IMPORTED_MODULE_3__[/* AppModule */ "a"]);
+        const app = yield _nestjs_core__WEBPACK_IMPORTED_MODULE_2__["NestFactory"].create(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"]);
         const globalPrefix = 'api';
         const port = process.env.PORT || 3333;
         app.setGlobalPrefix(globalPrefix);
@@ -472,6 +396,102 @@ function bootstrap() {
 bootstrap();
 
 
+/***/ }),
+
+/***/ "./libs/api-interfaces/src/index.ts":
+/*!******************************************!*\
+  !*** ./libs/api-interfaces/src/index.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/api-interfaces */ "./libs/api-interfaces/src/lib/api-interfaces.ts");
+/* harmony import */ var _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _lib_api_interfaces__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+
+/***/ }),
+
+/***/ "./libs/api-interfaces/src/lib/api-interfaces.ts":
+/*!*******************************************************!*\
+  !*** ./libs/api-interfaces/src/lib/api-interfaces.ts ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./libs/api-interfaces/src/lib/dto/create-event.dto.ts":
+/*!*************************************************************!*\
+  !*** ./libs/api-interfaces/src/lib/dto/create-event.dto.ts ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 0:
+/*!************************************!*\
+  !*** multi ./apps/api/src/main.ts ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\Users\robcyk\Desktop\projects\event-app\apps\api\src\main.ts */"./apps/api/src/main.ts");
+
+
+/***/ }),
+
+/***/ "@nestjs/common":
+/*!*********************************!*\
+  !*** external "@nestjs/common" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/common");
+
+/***/ }),
+
+/***/ "@nestjs/core":
+/*!*******************************!*\
+  !*** external "@nestjs/core" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/core");
+
+/***/ }),
+
+/***/ "rxjs/operators":
+/*!*********************************!*\
+  !*** external "rxjs/operators" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("rxjs/operators");
+
+/***/ }),
+
+/***/ "tslib":
+/*!************************!*\
+  !*** external "tslib" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("tslib");
+
 /***/ })
-/******/ ])));
+
+/******/ })));
 //# sourceMappingURL=main.js.map

@@ -1,14 +1,14 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
-import { EventModel } from "../../models/event.model";
+/*import { EventModel } from "../../models/event.model";*/
 import { CreateEventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/create-event.dto";
 import { catchError } from "rxjs/operators";
 
 @Injectable()
 export class EventService {
   constructor(
-    @InjectModel('Event') private readonly eventModel: Model<EventModel>,
+    //@InjectModel('Event') private readonly eventModel: Model<EventModel>,
     private httpService: HttpService
   ) {
   }
@@ -17,8 +17,9 @@ export class EventService {
     return 'test';
   }
 
-  async addEvent(createEventDTO: CreateEventDTO): Promise<EventModel> {
-    const newEvent = await new this.eventModel(createEventDTO);
+  //async addEvent(createEventDTO: CreateEventDTO): Promise<EventModel> {
+  async addEvent(createEventDTO: CreateEventDTO): Promise<string> {
+    //const newEvent = await new this.eventModel(createEventDTO);
 
 
     this.httpService.post('https://fcm.googleapis.com/fcm/send',
@@ -45,7 +46,8 @@ export class EventService {
       console.log(v)
     })
 
-    return newEvent.save();
+    return 'done';
+    //return newEvent.save();
   }
 
 }

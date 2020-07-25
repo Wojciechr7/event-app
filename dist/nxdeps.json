@@ -621,7 +621,7 @@
             {
               "file": "apps/api/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1594755413744.5073
+              "mtime": 1595668329020.7407
             },
             {
               "file": "apps/api/src/app/app.service.spec.ts",
@@ -646,17 +646,17 @@
             {
               "file": "apps/api/src/app/modules/event/event.module.ts",
               "ext": ".ts",
-              "mtime": 1595664975839.911
+              "mtime": 1595668329014.7583
             },
             {
               "file": "apps/api/src/app/modules/event/models/event.model.ts",
               "ext": ".ts",
-              "mtime": 1594761341127.1345
+              "mtime": 1595668329033.707
             },
             {
               "file": "apps/api/src/app/modules/event/schemas/event.schema.ts",
               "ext": ".ts",
-              "mtime": 1594756327801.0002
+              "mtime": 1595668329027.723
             },
             {
               "file": "apps/api/src/app/modules/event/services/event/event.service.spec.ts",
@@ -666,7 +666,7 @@
             {
               "file": "apps/api/src/app/modules/event/services/event/event.service.ts",
               "ext": ".ts",
-              "mtime": 1595665744370.7039
+              "mtime": 1595668329038.7036
             },
             {
               "file": "apps/api/src/assets/.gitkeep",
@@ -1577,7 +1577,7 @@
       {
         "file": "apps/api/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1594755413744.5073
+        "mtime": 1595668329020.7407
       },
       {
         "file": "apps/api/src/app/app.service.spec.ts",
@@ -1602,17 +1602,17 @@
       {
         "file": "apps/api/src/app/modules/event/event.module.ts",
         "ext": ".ts",
-        "mtime": 1595664975839.911
+        "mtime": 1595668329014.7583
       },
       {
         "file": "apps/api/src/app/modules/event/models/event.model.ts",
         "ext": ".ts",
-        "mtime": 1594761341127.1345
+        "mtime": 1595668329033.707
       },
       {
         "file": "apps/api/src/app/modules/event/schemas/event.schema.ts",
         "ext": ".ts",
-        "mtime": 1594756327801.0002
+        "mtime": 1595668329027.723
       },
       {
         "file": "apps/api/src/app/modules/event/services/event/event.service.spec.ts",
@@ -1622,7 +1622,7 @@
       {
         "file": "apps/api/src/app/modules/event/services/event/event.service.ts",
         "ext": ".ts",
-        "mtime": 1595665744370.7039
+        "mtime": 1595668329038.7036
       },
       {
         "file": "apps/api/src/assets/.gitkeep",
