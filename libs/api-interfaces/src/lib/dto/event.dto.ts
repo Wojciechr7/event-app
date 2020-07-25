@@ -1,5 +1,6 @@
 export interface EventDTO {
   name: string;
-  date: Date;
+  month: number;
+  day: number;
   condition: string;
 }

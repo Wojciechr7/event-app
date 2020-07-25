@@ -6,7 +6,7 @@ import { EventModule } from "./modules/event/event.module";
 
 @Module({
   imports: [
-    //MongooseModule.forRoot('mongodb://localhost/event-app'),
+    MongooseModule.forRoot('mongodb://localhost/event-app'),
     EventModule
   ],
   controllers: [AppController],

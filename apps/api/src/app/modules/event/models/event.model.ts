@@ -1,9 +1,8 @@
-/*
 import { Document } from 'mongoose';
 
 export interface EventModel extends Document {
   name: string;
-  date: Date;
+  month: number;
+  day: number;
   condition: string;
 }
-*/
