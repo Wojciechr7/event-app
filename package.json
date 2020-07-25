@@ -10,7 +10,7 @@
     "nx": "nx",
     "start": "ng run event-app:serve-with-services",
     "servePwa": "http-server -c-1 dist/apps/event-app",
-    "build": "ng build",
+    "build": "ng build api --prod",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
