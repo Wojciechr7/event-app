@@ -646,7 +646,7 @@
             {
               "file": "apps/api/src/app/modules/event/event.module.ts",
               "ext": ".ts",
-              "mtime": 1595668329014.7583
+              "mtime": 1595668492750.3623
             },
             {
               "file": "apps/api/src/app/modules/event/models/event.model.ts",
@@ -1602,7 +1602,7 @@
       {
         "file": "apps/api/src/app/modules/event/event.module.ts",
         "ext": ".ts",
-        "mtime": 1595668329014.7583
+        "mtime": 1595668492750.3623
       },
       {
         "file": "apps/api/src/app/modules/event/models/event.model.ts",
