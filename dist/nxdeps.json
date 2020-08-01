@@ -220,7 +220,13 @@
                   "apps/event-app/src/firebase-messaging-sw.js"
                 ],
                 "styles": [
-                  "apps/event-app/src/styles.scss"
+                  "apps/event-app/src/styles.scss",
+                  "node_modules/primeicons/primeicons.css",
+                  "node_modules/primeng/resources/themes/nova-light/theme.css",
+                  "node_modules/primeng/resources/primeng.min.css",
+                  "node_modules/@fullcalendar/common/main.css",
+                  "node_modules/@fullcalendar/daygrid/main.css",
+                  "node_modules/@fullcalendar/timegrid/main.css"
                 ],
                 "scripts": []
               },
@@ -321,6 +327,46 @@
               "mtime": 1591445784520.5771
             },
             {
+              "file": "apps/event-app/src/app/+state/app.actions.ts",
+              "ext": ".ts",
+              "mtime": 1595719889348.2854
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.effects.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595719889348.2854
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.effects.ts",
+              "ext": ".ts",
+              "mtime": 1595719889349.284
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.models.ts",
+              "ext": ".ts",
+              "mtime": 1595719889349.284
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.reducer.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595719889350.274
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.reducer.ts",
+              "ext": ".ts",
+              "mtime": 1595719889350.274
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.selectors.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595719889350.274
+            },
+            {
+              "file": "apps/event-app/src/app/+state/app.selectors.ts",
+              "ext": ".ts",
+              "mtime": 1595719889351.277
+            },
+            {
               "file": "apps/event-app/src/app/app.component.html",
               "ext": ".html",
               "mtime": 1595712731704.9949
@@ -343,7 +389,47 @@
             {
               "file": "apps/event-app/src/app/app.module.ts",
               "ext": ".ts",
-              "mtime": 1595712731716.963
+              "mtime": 1595723796137.6528
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.actions.ts",
+              "ext": ".ts",
+              "mtime": 1595720536681.334
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595720536682.331
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.ts",
+              "ext": ".ts",
+              "mtime": 1595720536685.3503
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.models.ts",
+              "ext": ".ts",
+              "mtime": 1595720536686.3323
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595720536687.3186
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.ts",
+              "ext": ".ts",
+              "mtime": 1595720536687.3186
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595720536688.3154
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.ts",
+              "ext": ".ts",
+              "mtime": 1595720536689.3127
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/calendar-routing.module.ts",
@@ -353,12 +439,12 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
               "ext": ".ts",
-              "mtime": 1595713638596.736
+              "mtime": 1595724308839.8376
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
               "ext": ".html",
-              "mtime": 1595713120752.534
+              "mtime": 1595723754884.3718
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.scss",
@@ -373,7 +459,17 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.ts",
               "ext": ".ts",
-              "mtime": 1595713034173.8428
+              "mtime": 1595724413922.4893
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1595724492084.039
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.ts",
+              "ext": ".ts",
+              "mtime": 1595724492084.039
             },
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
@@ -488,7 +584,7 @@
             {
               "file": "apps/event-app/src/styles.scss",
               "ext": ".scss",
-              "mtime": 1591445784508.4597
+              "mtime": 1595713935052.3496
             },
             {
               "file": "apps/event-app/src/test-setup.ts",
@@ -784,6 +880,14 @@
           "files": []
         }
       },
+      "@angular/cdk": {
+        "type": "npm",
+        "name": "@angular/cdk",
+        "data": {
+          "version": "^10.1.0",
+          "files": []
+        }
+      },
       "@angular/common": {
         "type": "npm",
         "name": "@angular/common",
@@ -856,9 +960,9 @@
           "files": []
         }
       },
-      "@fullcalendar/angular": {
+      "@fullcalendar/core": {
         "type": "npm",
-        "name": "@fullcalendar/angular",
+        "name": "@fullcalendar/core",
         "data": {
           "version": "^5.1.0",
           "files": []
@@ -867,6 +971,22 @@
       "@fullcalendar/daygrid": {
         "type": "npm",
         "name": "@fullcalendar/daygrid",
+        "data": {
+          "version": "^5.1.0",
+          "files": []
+        }
+      },
+      "@fullcalendar/interaction": {
+        "type": "npm",
+        "name": "@fullcalendar/interaction",
+        "data": {
+          "version": "^5.1.0",
+          "files": []
+        }
+      },
+      "@fullcalendar/timegrid": {
+        "type": "npm",
+        "name": "@fullcalendar/timegrid",
         "data": {
           "version": "^5.1.0",
           "files": []
@@ -912,11 +1032,51 @@
           "files": []
         }
       },
+      "@ngrx/effects": {
+        "type": "npm",
+        "name": "@ngrx/effects",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
+      "@ngrx/entity": {
+        "type": "npm",
+        "name": "@ngrx/entity",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
+      "@ngrx/router-store": {
+        "type": "npm",
+        "name": "@ngrx/router-store",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
+      "@ngrx/store": {
+        "type": "npm",
+        "name": "@ngrx/store",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
       "@nrwl/angular": {
         "type": "npm",
         "name": "@nrwl/angular",
         "data": {
           "version": "9.3.0",
+          "files": []
+        }
+      },
+      "chart.js": {
+        "type": "npm",
+        "name": "chart.js",
+        "data": {
+          "version": "^2.9.3",
           "files": []
         }
       },
@@ -965,6 +1125,30 @@
         "name": "mongoose",
         "data": {
           "version": "^5.9.24",
+          "files": []
+        }
+      },
+      "primeicons": {
+        "type": "npm",
+        "name": "primeicons",
+        "data": {
+          "version": "^4.0.0",
+          "files": []
+        }
+      },
+      "primeng": {
+        "type": "npm",
+        "name": "primeng",
+        "data": {
+          "version": "^9.1.3",
+          "files": []
+        }
+      },
+      "quill": {
+        "type": "npm",
+        "name": "quill",
+        "data": {
+          "version": "^1.3.7",
           "files": []
         }
       },
@@ -1207,6 +1391,22 @@
           "version": "~3.8.3",
           "files": []
         }
+      },
+      "@ngrx/schematics": {
+        "type": "npm",
+        "name": "@ngrx/schematics",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
+      "@ngrx/store-devtools": {
+        "type": "npm",
+        "name": "@ngrx/store-devtools",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
       }
     },
     "dependencies": {
@@ -1233,7 +1433,32 @@
         {
           "type": "static",
           "source": "event-app",
+          "target": "@ngrx/store"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
           "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "rxjs"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@ngrx/effects"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@nrwl/angular"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@ngrx/entity"
         },
         {
           "type": "static",
@@ -1263,12 +1488,37 @@
         {
           "type": "static",
           "source": "event-app",
-          "target": "@fullcalendar/angular"
+          "target": "@ngrx/store-devtools"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@ngrx/router-store"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "primeng"
         },
         {
           "type": "static",
           "source": "event-app",
           "target": "@fullcalendar/daygrid"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@fullcalendar/timegrid"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@fullcalendar/interaction"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "@fullcalendar/core"
         },
         {
           "type": "static",
@@ -1336,6 +1586,7 @@
         }
       ],
       "@angular/animations": [],
+      "@angular/cdk": [],
       "@angular/common": [],
       "@angular/compiler": [],
       "@angular/core": [],
@@ -1345,20 +1596,30 @@
       "@angular/platform-browser-dynamic": [],
       "@angular/router": [],
       "@angular/service-worker": [],
-      "@fullcalendar/angular": [],
+      "@fullcalendar/core": [],
       "@fullcalendar/daygrid": [],
+      "@fullcalendar/interaction": [],
+      "@fullcalendar/timegrid": [],
       "@nestjs/common": [],
       "@nestjs/core": [],
       "@nestjs/mongoose": [],
       "@nestjs/platform-express": [],
       "@nestjs/swagger": [],
+      "@ngrx/effects": [],
+      "@ngrx/entity": [],
+      "@ngrx/router-store": [],
+      "@ngrx/store": [],
       "@nrwl/angular": [],
+      "chart.js": [],
       "class-transformer": [],
       "class-validator": [],
       "core-js": [],
       "firebase": [],
       "moment": [],
       "mongoose": [],
+      "primeicons": [],
+      "primeng": [],
+      "quill": [],
       "reflect-metadata": [],
       "rxjs": [],
       "swagger-ui-express": [],
@@ -1388,7 +1649,9 @@
       "ts-jest": [],
       "ts-node": [],
       "tslint": [],
-      "typescript": []
+      "typescript": [],
+      "@ngrx/schematics": [],
+      "@ngrx/store-devtools": []
     }
   },
   "fileMap": {
@@ -1518,6 +1781,46 @@
         "mtime": 1591445784520.5771
       },
       {
+        "file": "apps/event-app/src/app/+state/app.actions.ts",
+        "ext": ".ts",
+        "mtime": 1595719889348.2854
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.effects.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595719889348.2854
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.effects.ts",
+        "ext": ".ts",
+        "mtime": 1595719889349.284
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.models.ts",
+        "ext": ".ts",
+        "mtime": 1595719889349.284
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.reducer.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595719889350.274
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.reducer.ts",
+        "ext": ".ts",
+        "mtime": 1595719889350.274
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.selectors.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595719889350.274
+      },
+      {
+        "file": "apps/event-app/src/app/+state/app.selectors.ts",
+        "ext": ".ts",
+        "mtime": 1595719889351.277
+      },
+      {
         "file": "apps/event-app/src/app/app.component.html",
         "ext": ".html",
         "mtime": 1595712731704.9949
@@ -1540,7 +1843,47 @@
       {
         "file": "apps/event-app/src/app/app.module.ts",
         "ext": ".ts",
-        "mtime": 1595712731716.963
+        "mtime": 1595723796137.6528
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.actions.ts",
+        "ext": ".ts",
+        "mtime": 1595720536681.334
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595720536682.331
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.ts",
+        "ext": ".ts",
+        "mtime": 1595720536685.3503
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.models.ts",
+        "ext": ".ts",
+        "mtime": 1595720536686.3323
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595720536687.3186
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.ts",
+        "ext": ".ts",
+        "mtime": 1595720536687.3186
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595720536688.3154
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.ts",
+        "ext": ".ts",
+        "mtime": 1595720536689.3127
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/calendar-routing.module.ts",
@@ -1550,12 +1893,12 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
         "ext": ".ts",
-        "mtime": 1595713638596.736
+        "mtime": 1595724308839.8376
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
         "ext": ".html",
-        "mtime": 1595713120752.534
+        "mtime": 1595723754884.3718
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.scss",
@@ -1570,7 +1913,17 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.ts",
         "ext": ".ts",
-        "mtime": 1595713034173.8428
+        "mtime": 1595724413922.4893
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1595724492084.039
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.ts",
+        "ext": ".ts",
+        "mtime": 1595724492084.039
       },
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
@@ -1685,7 +2038,7 @@
       {
         "file": "apps/event-app/src/styles.scss",
         "ext": ".scss",
-        "mtime": 1591445784508.4597
+        "mtime": 1595713935052.3496
       },
       {
         "file": "apps/event-app/src/test-setup.ts",

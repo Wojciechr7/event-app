@@ -41,7 +41,15 @@
               "apps/event-app/src/manifest.webmanifest",
               "apps/event-app/src/firebase-messaging-sw.js"
             ],
-            "styles": ["apps/event-app/src/styles.scss"],
+            "styles": [
+              "apps/event-app/src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/@fullcalendar/daygrid/main.css",
+              "node_modules/@fullcalendar/timegrid/main.css"
+            ],
             "scripts": []
           },
           "configurations": {

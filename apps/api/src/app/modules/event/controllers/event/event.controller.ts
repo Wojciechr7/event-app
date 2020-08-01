@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Param, Post, Put, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Res } from '@nestjs/common';
 import { EventService } from "../../services/event/event.service";
 import { CreateEventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/create-event.dto";
 import { EventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
@@ -43,6 +43,11 @@ export class EventController {
       message: "Event has been updated successfully",
       event
     })
+  }
+
+  @Delete()
+  deleteAllData(): string {
+    return this.eventService.deleteAll();
   }
 
 }

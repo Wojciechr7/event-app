@@ -17,6 +17,11 @@ export class EventService {
     return this.eventModel.find().exec();
   }
 
+  deleteAll() {
+    const events = this.eventModel.deleteMany({ __v: 0 });
+    return events;
+  }
+
   async addEvent(createEventDTO: CreateEventDTO): Promise<EventModel> {
     const newEvent = await new this.eventModel(createEventDTO);
 

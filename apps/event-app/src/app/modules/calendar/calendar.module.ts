@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FullCalendarModule } from "@fullcalendar/angular";
 import { CalendarRoutingModule } from './calendar-routing.module';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import dayGridPlugin from '@fullcalendar/daygrid';
-//import interactionPlugin from '@fullcalendar/interaction';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import * as fromCalendar from './+state/calendar.reducer';
+import { CalendarEffects } from './+state/calendar.effects';
+import { FullCalendarModule } from 'primeng/fullcalendar';
+import { DialogModule } from 'primeng/dialog';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
 
-FullCalendarModule.registerPlugins([
+/*FullCalendarModule.registerPlugins([
   dayGridPlugin,
-  //interactionPlugin
-]);
+  interactionPlugin
+]);*/
 
 @NgModule({
-  declarations: [CalendarComponent],
+  declarations: [CalendarComponent, EventDetailsComponent],
   imports: [
+    FullCalendarModule,
     CommonModule,
     CalendarRoutingModule,
-    FullCalendarModule
-  ]
+    StoreModule.forFeature(
+      fromCalendar.CALENDAR_FEATURE_KEY,
+      fromCalendar.reducer
+    ),
+    EffectsModule.forFeature([CalendarEffects]),
+
+  ],
 })
-export class CalendarModule { }
+export class CalendarModule {
+}

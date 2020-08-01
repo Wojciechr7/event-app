@@ -259,6 +259,9 @@ let EventController = class EventController {
             });
         });
     }
+    deleteAllData() {
+        return this.eventService.deleteAll();
+    }
 };
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])(),
@@ -280,6 +283,12 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, String, typeof (_c = typeof _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"] !== "undefined" && _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"]) === "function" ? _c : Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
 ], EventController.prototype, "updateEvent", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Delete"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", []),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", String)
+], EventController.prototype, "deleteAllData", null);
 EventController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('event'),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_d = typeof _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"] !== "undefined" && _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"]) === "function" ? _d : Object])
@@ -411,6 +420,10 @@ let EventService = class EventService {
     }
     getAllEvents() {
         return this.eventModel.find().exec();
+    }
+    deleteAll() {
+        const events = this.eventModel.deleteMany({ __v: 0 });
+        return events;
     }
     addEvent(createEventDTO) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
