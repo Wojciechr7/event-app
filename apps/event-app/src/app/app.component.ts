@@ -24,10 +24,6 @@ export class AppComponent implements OnInit {
     this.requestPermission();
   }
 
-  test() {
-    console.log(this.token)
-  }
-
   subToTopic() {
     this.subscribeTokenToTopic(this.token, 'all');
   }

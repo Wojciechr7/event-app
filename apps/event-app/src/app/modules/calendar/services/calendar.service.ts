@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { EventDTO } from "../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
+import { environment } from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class CalendarService {
   ) { }
 
   getCalendar(): Observable<EventDTO[]> {
-    return this.http.get<EventDTO[]>(`http://localhost:3333/api/event`);
+    return this.http.get<EventDTO[]>(`${environment.apiUrl}/event`);
   }
 
 }

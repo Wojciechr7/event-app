@@ -33,7 +33,7 @@ const calendarReducer = createReducer(
     error: null,
   })),
   on(CalendarActions.loadCalendarSuccess, (state, { calendar }) =>
-    calendarAdapter.addAll(calendar, { ...state, loaded: true })
+    calendarAdapter.setAll(calendar, { ...state, loaded: true })
   ),
   on(CalendarActions.loadCalendarFailure, (state, { error }) => ({
     ...state,

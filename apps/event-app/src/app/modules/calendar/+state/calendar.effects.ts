@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
-
-import * as fromCalendar from './calendar.reducer';
 import * as CalendarActions from './calendar.actions';
 import { CalendarService } from "../services/calendar.service";
-import { first, map, withLatestFrom } from "rxjs/operators";
+import { map, withLatestFrom } from "rxjs/operators";
 import { EventDTO } from "../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
 import * as moment from "moment";
-import { select, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { CalendarPartialState } from "./calendar.reducer";
 import { getAllCalendar } from "./calendar.selectors";
 
@@ -62,19 +60,6 @@ export class CalendarEffects {
       })
     ),
   );
-
-/*  selectCalendarDay$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(CalendarActions.selectCalendarDay),
-      map((action) => {
-          return this.store.pipe(select(getAllCalendar), first(), map(calendars => {
-            console.log(calendars)
-            return CalendarActions.selectCalendarDaySuccess({selectedDate: null, selectedIds: null});
-          }));
-
-      })
-    )
-  );*/
 
   constructor(
     private actions$: Actions,

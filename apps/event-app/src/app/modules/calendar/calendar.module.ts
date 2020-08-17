@@ -11,11 +11,7 @@ import { DialogModule } from 'primeng/dialog';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { DayDetailsComponent } from './components/day-details/day-details.component';
 import { BaseModule } from "../../../../../../libs/base/src/lib/base.module";
-
-/*FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  interactionPlugin
-]);*/
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [CalendarComponent, EventDetailsComponent, DayDetailsComponent],
@@ -29,7 +25,7 @@ import { BaseModule } from "../../../../../../libs/base/src/lib/base.module";
       fromCalendar.reducer
     ),
     EffectsModule.forFeature([CalendarEffects]),
-
+    CardModule
   ],
 })
 export class CalendarModule {
