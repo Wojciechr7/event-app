@@ -6,7 +6,6 @@ import {
   calendarAdapter,
 } from './calendar.reducer';
 
-// Lookup the 'Calendar' feature state managed by NgRx
 export const getCalendarState = createFeatureSelector<
   CalendarPartialState,
   State
@@ -38,8 +37,20 @@ export const getSelectedId = createSelector(
   (state: State) => state.selectedId
 );
 
+export const getSelectedIds = createSelector(
+  getCalendarState,
+  (state: State) => state.selectedIds
+);
+
 export const getSelected = createSelector(
   getCalendarEntities,
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
+);
+
+export const getSelectedMany = createSelector(
+  getAllCalendar,
+  getSelectedIds,
+  (entities, selectedIds) =>
+    selectedIds && entities.filter(e => selectedIds.indexOf(e._id) > -1)
 );

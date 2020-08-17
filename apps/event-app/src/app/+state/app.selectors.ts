@@ -41,5 +41,3 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
-
-export const getDialogData = createSelector(getAppState, (state: State) => state.dialogData);

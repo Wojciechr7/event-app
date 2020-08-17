@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from "primeng";
 import { select, Store } from "@ngrx/store";
 import { CalendarPartialState } from "../../+state/calendar.reducer";
-import { getSelected } from "../../+state/calendar.selectors";
 import { Observable } from "rxjs";
 import { EventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
+import { getSelected, getSelectedMany } from "../../+state/calendar.selectors";
 
 @Component({
-  selector: 'event-app-event-details',
-  templateUrl: './event-details.component.html',
-  styleUrls: ['./event-details.component.scss']
+  selector: 'event-app-day-details',
+  templateUrl: './day-details.component.html',
+  styleUrls: ['./day-details.component.scss']
 })
-export class EventDetailsComponent implements OnInit {
+export class DayDetailsComponent implements OnInit {
 
-  selectedEvent$: Observable<EventDTO>;
+  selectedEvents$: Observable<EventDTO[]>;
 
   constructor(
     private ref: DynamicDialogRef,
@@ -22,7 +22,7 @@ export class EventDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.selectedEvent$ = this.store.pipe(select(getSelected));
+    this.selectedEvents$ = this.store.pipe(select(getSelectedMany));
   }
 
 }

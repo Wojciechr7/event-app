@@ -1,1 +1,5 @@
-<p>event-details works!</p>
+<div class="details-container" *ngIf="selectedEvent$ | async as event">
+  <p>{{event.name}}</p>
+  <p>Day: {{event.day}}</p>
+  <p>Month: {{event.month}}</p>
+</div>

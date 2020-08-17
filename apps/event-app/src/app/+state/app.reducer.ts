@@ -32,8 +32,7 @@ const appReducer = createReducer(
   on(AppActions.loadAppSuccess, (state, { app }) =>
     appAdapter.addAll(app, { ...state, loaded: true })
   ),
-  on(AppActions.loadAppFailure, (state, { error }) => ({ ...state, error })),
-  on(AppActions.displayDialog, (state, { component, data }) => ({ ...state, dialogData: {component, data} }))
+  on(AppActions.loadAppFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function reducer(state: State | undefined, action: Action) {

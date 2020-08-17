@@ -9,6 +9,8 @@ import { CalendarEffects } from './+state/calendar.effects';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { DialogModule } from 'primeng/dialog';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
+import { DayDetailsComponent } from './components/day-details/day-details.component';
+import { BaseModule } from "../../../../../../libs/base/src/lib/base.module";
 
 /*FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -16,10 +18,11 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 ]);*/
 
 @NgModule({
-  declarations: [CalendarComponent, EventDetailsComponent],
+  declarations: [CalendarComponent, EventDetailsComponent, DayDetailsComponent],
   imports: [
     FullCalendarModule,
     CommonModule,
+    BaseModule,
     CalendarRoutingModule,
     StoreModule.forFeature(
       fromCalendar.CALENDAR_FEATURE_KEY,

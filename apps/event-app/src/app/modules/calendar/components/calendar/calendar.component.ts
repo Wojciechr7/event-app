@@ -12,6 +12,8 @@ import { Observable } from "rxjs";
 import { EventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
 import { tap } from "rxjs/operators";
 import { EventDetailsComponent } from "../event-details/event-details.component";
+import { DialogService } from "primeng";
+import { DayDetailsComponent } from "../day-details/day-details.component";
 
 @Component({
   selector: 'event-app-calendar',
@@ -41,16 +43,15 @@ export class CalendarComponent implements OnInit {
 
   constructor(
     private store: Store<CalendarPartialState>,
-    private resolver: ComponentFactoryResolver
+    private resolver: ComponentFactoryResolver,
+    private dialogService: DialogService
   ) {
   }
 
   ngOnInit(): void {
     this.store.dispatch(CalendarActions.loadCalendar());
 
-    this.events$ = this.store.pipe(select(getAllCalendar), tap(v => {
-      console.log(v)
-    }));
+    this.events$ = this.store.pipe(select(getAllCalendar));
 
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -60,18 +61,27 @@ export class CalendarComponent implements OnInit {
               right: 'month,agendaWeek,agendaDay'
             },*/
       height: 'auto',
-      dateClick: (v) => this.handleDateClick(v)
+      dateClick: (v) => this.handleDateClick(v),
+      eventClick: (v) => this.handleEventClick(v)
     }
   }
 
     private handleEventClick(arg) {
-      console.log(arg.event._def.publicId)
+      this.store.dispatch(CalendarActions.selectEventId({eventId: arg.event._def.publicId}));
 
+      const ref = this.dialogService.open(EventDetailsComponent, {
+        header: 'Event details',
+        width: '70%'
+      });
     }
 
     private handleDateClick(v) {
-      //this.displayDetails = true;
-      this.store.dispatch(AppActions.displayDialog({component: EventDetailsComponent, data: {}}));
+      this.store.dispatch(CalendarActions.selectCalendarDay({dateString: v.date}));
+
+      const ref = this.dialogService.open(DayDetailsComponent, {
+        header: 'Day events',
+        width: '70%'
+      });
     }
 
 }

@@ -20,11 +20,15 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import {FullCalendarModule} from 'primeng/fullcalendar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DialogModule } from "primeng/dialog";
+import {DynamicDialogModule, DialogService} from 'primeng/dynamicdialog';
+import { BaseModule } from "../../../../libs/base/src/lib/base.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BaseModule,
     DialogModule,
+    DynamicDialogModule,
     FullCalendarModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -69,7 +73,9 @@ import { DialogModule } from "primeng/dialog";
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DialogService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -1,18 +1,8 @@
-import {
-  Component,
-  ComponentFactory,
-  ComponentFactoryResolver,
-  ComponentRef,
-  OnInit,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { AngularFireMessaging } from "@angular/fire/messaging";
 import { CLOUD_MESSAGING_TOKEN } from "../firebase-config";
-import { select, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { AppPartialState } from "./+state/app.reducer";
-import { getDialogData } from "./+state/app.selectors";
-import { filter, map } from "rxjs/operators";
 
 @Component({
   selector: 'event-app-root',
@@ -21,11 +11,7 @@ import { filter, map } from "rxjs/operators";
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild("container", { read: ViewContainerRef }) container;
-
   token: string;
-  displayDialog: boolean = false;
-  component$;
 
   constructor(
     private angularFireMessaging: AngularFireMessaging,
@@ -36,14 +22,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.requestPermission();
-    this.component$ = this.store.pipe(select(getDialogData), filter(v => !!v), map(v => {
-      console.log(v)
-      this.displayDialog = true;
-      this.container.clear();
-      const factory: ComponentFactory<any> = this.resolver.resolveComponentFactory(v.component);
-      const componentRef: ComponentRef<any> = this.container.createComponent(factory);
-      return factory;
-    }))
   }
 
   test() {

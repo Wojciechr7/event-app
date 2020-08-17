@@ -12,8 +12,3 @@ export const loadAppFailure = createAction(
   '[App] Load App Failure',
   props<{ error: any }>()
 );
-
-export const displayDialog = createAction(
-  '[App] Display Dialog',
-  props<{ component, data }>()
-);

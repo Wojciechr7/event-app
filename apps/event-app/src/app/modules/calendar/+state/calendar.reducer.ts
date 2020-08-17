@@ -3,25 +3,25 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import * as CalendarActions from './calendar.actions';
 import { EventDTO } from "../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
+import * as moment from "moment";
 
 export const CALENDAR_FEATURE_KEY = 'calendar';
 
 export interface State extends EntityState<EventDTO> {
-  selectedId?: string | number; // which Calendar record has been selected
-  loaded: boolean; // has the Calendar list been loaded
-  error?: string | null; // last none error (if any)
+  selectedId?: string;
+  selectedIds?: string[];
+  loaded: boolean;
+  error?: string | null;
+  selectedDate?: moment.Moment;
 }
 
 export interface CalendarPartialState {
   readonly [CALENDAR_FEATURE_KEY]: State;
 }
 
-export const calendarAdapter: EntityAdapter<EventDTO> = createEntityAdapter<
-  EventDTO
->();
+export const calendarAdapter: EntityAdapter<EventDTO> = createEntityAdapter<EventDTO>();
 
 export const initialState: State = calendarAdapter.getInitialState({
-  // set initial required properties
   loaded: false,
 });
 
@@ -38,6 +38,15 @@ const calendarReducer = createReducer(
   on(CalendarActions.loadCalendarFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(CalendarActions.selectEventId, (state, { eventId }) => ({
+    ...state,
+    selectedId: eventId
+  })),
+  on(CalendarActions.selectCalendarDaySuccess, (state, { selectedDate, selectedIds }) => ({
+    ...state,
+    selectedDate,
+    selectedIds
   }))
 );
 
