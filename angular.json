@@ -257,6 +257,129 @@
           }
         }
       }
+    },
+    "event-management": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/event-management",
+      "sourceRoot": "apps/event-management/src",
+      "prefix": "event-app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/event-management",
+            "index": "apps/event-management/src/index.html",
+            "main": "apps/event-management/src/main.ts",
+            "polyfills": "apps/event-management/src/polyfills.ts",
+            "tsConfig": "apps/event-management/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/event-management/src/favicon.ico",
+              "apps/event-management/src/assets"
+            ],
+            "styles": ["apps/event-management/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/event-management/src/environments/environment.ts",
+                  "with": "apps/event-management/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "event-management:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "event-management:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "event-management:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/event-management/tsconfig.app.json",
+              "apps/event-management/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/event-management/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/event-management/jest.config.js",
+            "tsConfig": "apps/event-management/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/event-management/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "event-management-e2e": {
+      "root": "apps/event-management-e2e",
+      "sourceRoot": "apps/event-management-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/event-management-e2e/cypress.json",
+            "tsConfig": "apps/event-management-e2e/tsconfig.e2e.json",
+            "devServerTarget": "event-management:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "event-management:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/event-management-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/event-management-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

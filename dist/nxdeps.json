@@ -384,7 +384,7 @@
             {
               "file": "apps/event-app/src/app/app.component.ts",
               "ext": ".ts",
-              "mtime": 1596280937214.153
+              "mtime": 1597701549634.0288
             },
             {
               "file": "apps/event-app/src/app/app.module.ts",
@@ -404,7 +404,7 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.ts",
               "ext": ".ts",
-              "mtime": 1596285231971.813
+              "mtime": 1597701549629.043
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.spec.ts",
@@ -414,7 +414,7 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.ts",
               "ext": ".ts",
-              "mtime": 1596284300295.453
+              "mtime": 1597701549606.1023
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.spec.ts",
@@ -434,17 +434,17 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
               "ext": ".ts",
-              "mtime": 1596287721006.5725
+              "mtime": 1597699631589.61
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
               "ext": ".html",
-              "mtime": 1595729427317.5493
+              "mtime": 1597702483924.2986
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.scss",
               "ext": ".scss",
-              "mtime": 1595712384223.348
+              "mtime": 1597702483930.2495
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.spec.ts",
@@ -454,17 +454,17 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.ts",
               "ext": ".ts",
-              "mtime": 1596285357852.622
+              "mtime": 1598690428772.116
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.html",
               "ext": ".html",
-              "mtime": 1596282013043.385
+              "mtime": 1598691582300.013
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.scss",
               "ext": ".scss",
-              "mtime": 1596281902551.6978
+              "mtime": 1598690388147.478
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.spec.ts",
@@ -509,17 +509,17 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.ts",
               "ext": ".ts",
-              "mtime": 1595726255455.9019
+              "mtime": 1597701235173.6777
             },
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
               "ext": ".html",
-              "mtime": 1596290396115.054
+              "mtime": 1597701549638.0178
             },
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.scss",
               "ext": ".scss",
-              "mtime": 1596290838032.671
+              "mtime": 1598691338493.8965
             },
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.spec.ts",
@@ -592,14 +592,24 @@
               "mtime": 1591446026394.1228
             },
             {
+              "file": "apps/event-app/src/assets/images/cats-pattern.jpg",
+              "ext": ".jpg",
+              "mtime": 1598690853414.2864
+            },
+            {
+              "file": "apps/event-app/src/assets/images/pixel-heart.png",
+              "ext": ".png",
+              "mtime": 1579092556000
+            },
+            {
               "file": "apps/event-app/src/environments/environment.prod.ts",
               "ext": ".ts",
-              "mtime": 1594753229763.9573
+              "mtime": 1597701235180.6506
             },
             {
               "file": "apps/event-app/src/environments/environment.ts",
               "ext": ".ts",
-              "mtime": 1594753229757.9463
+              "mtime": 1597701235156.6963
             },
             {
               "file": "apps/event-app/src/favicon.ico",
@@ -629,7 +639,7 @@
             {
               "file": "apps/event-app/src/styles.scss",
               "ext": ".scss",
-              "mtime": 1595713935052.3496
+              "mtime": 1598691690638.0618
             },
             {
               "file": "apps/event-app/src/test-setup.ts",
@@ -1922,7 +1932,7 @@
       {
         "file": "apps/event-app/src/app/app.component.ts",
         "ext": ".ts",
-        "mtime": 1596280937214.153
+        "mtime": 1597701549634.0288
       },
       {
         "file": "apps/event-app/src/app/app.module.ts",
@@ -1942,7 +1952,7 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/+state/calendar.effects.ts",
         "ext": ".ts",
-        "mtime": 1596285231971.813
+        "mtime": 1597701549629.043
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.spec.ts",
@@ -1952,7 +1962,7 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/+state/calendar.reducer.ts",
         "ext": ".ts",
-        "mtime": 1596284300295.453
+        "mtime": 1597701549606.1023
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/+state/calendar.selectors.spec.ts",
@@ -1972,17 +1982,17 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
         "ext": ".ts",
-        "mtime": 1596287721006.5725
+        "mtime": 1597699631589.61
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
         "ext": ".html",
-        "mtime": 1595729427317.5493
+        "mtime": 1597702483924.2986
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.scss",
         "ext": ".scss",
-        "mtime": 1595712384223.348
+        "mtime": 1597702483930.2495
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.spec.ts",
@@ -1992,17 +2002,17 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.ts",
         "ext": ".ts",
-        "mtime": 1596285357852.622
+        "mtime": 1598690428772.116
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.html",
         "ext": ".html",
-        "mtime": 1596282013043.385
+        "mtime": 1598691582300.013
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.scss",
         "ext": ".scss",
-        "mtime": 1596281902551.6978
+        "mtime": 1598690388147.478
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.spec.ts",
@@ -2047,17 +2057,17 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/services/calendar.service.ts",
         "ext": ".ts",
-        "mtime": 1595726255455.9019
+        "mtime": 1597701235173.6777
       },
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
         "ext": ".html",
-        "mtime": 1596290396115.054
+        "mtime": 1597701549638.0178
       },
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.scss",
         "ext": ".scss",
-        "mtime": 1596290838032.671
+        "mtime": 1598691338493.8965
       },
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.spec.ts",
@@ -2130,14 +2140,24 @@
         "mtime": 1591446026394.1228
       },
       {
+        "file": "apps/event-app/src/assets/images/cats-pattern.jpg",
+        "ext": ".jpg",
+        "mtime": 1598690853414.2864
+      },
+      {
+        "file": "apps/event-app/src/assets/images/pixel-heart.png",
+        "ext": ".png",
+        "mtime": 1579092556000
+      },
+      {
         "file": "apps/event-app/src/environments/environment.prod.ts",
         "ext": ".ts",
-        "mtime": 1594753229763.9573
+        "mtime": 1597701235180.6506
       },
       {
         "file": "apps/event-app/src/environments/environment.ts",
         "ext": ".ts",
-        "mtime": 1594753229757.9463
+        "mtime": 1597701235156.6963
       },
       {
         "file": "apps/event-app/src/favicon.ico",
@@ -2167,7 +2187,7 @@
       {
         "file": "apps/event-app/src/styles.scss",
         "ext": ".scss",
-        "mtime": 1595713935052.3496
+        "mtime": 1598691690638.0618
       },
       {
         "file": "apps/event-app/src/test-setup.ts",

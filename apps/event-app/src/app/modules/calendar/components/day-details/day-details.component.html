@@ -1,5 +1,12 @@
 <div class="details-container" *ngIf="selectedEvents$ | async as events">
-  <div *ngFor="let event of events">
-    <p>{{event.name}}</p>
+  <event-app-event-card class="event-card" *ngFor="let event of events" [event]="event">
+  </event-app-event-card>
+<!--  <div *ngFor="let event of events">
+    <h3>{{event.name}}</h3>
   </div>
+  <p>test test test test test </p>
+  <p>test test test test test </p>
+  <p>test test test test test </p>
+  <p>test test test test test </p>
+  <p>test test test test test </p>-->
 </div>

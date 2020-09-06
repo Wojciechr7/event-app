@@ -10,7 +10,7 @@ import * as CalendarActions from '../../+state/calendar.actions';
 import { Observable } from "rxjs";
 import { EventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
 import { EventDetailsComponent } from "../event-details/event-details.component";
-import { DialogService } from "primeng";
+import { DialogService, DynamicDialogConfig } from "primeng";
 import { DayDetailsComponent } from "../day-details/day-details.component";
 
 @Component({
@@ -54,9 +54,14 @@ export class CalendarComponent implements OnInit {
     private handleDateClick(v) {
       this.store.dispatch(CalendarActions.selectCalendarDay({dateString: v.date}));
 
+      const config: DynamicDialogConfig = {
+
+      }
+
       const ref = this.dialogService.open(DayDetailsComponent, {
         header: 'Day events',
-        width: '70%'
+        width: '50%',
+        styleClass: 'base-dialog-style'
       });
     }
 

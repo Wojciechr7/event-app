@@ -12,9 +12,10 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 import { DayDetailsComponent } from './components/day-details/day-details.component';
 import { BaseModule } from "../../../../../../libs/base/src/lib/base.module";
 import {CardModule} from 'primeng/card';
+import { EventCardComponent } from './components/event-card/event-card.component';
 
 @NgModule({
-  declarations: [CalendarComponent, EventDetailsComponent, DayDetailsComponent],
+  declarations: [CalendarComponent, EventDetailsComponent, DayDetailsComponent, EventCardComponent],
   imports: [
     FullCalendarModule,
     CommonModule,
