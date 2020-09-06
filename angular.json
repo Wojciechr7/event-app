@@ -20,7 +20,7 @@
                 "command": "ng serve api"
               },
               {
-                "command": "ng serve event-app"
+                "command": "ng serve event-management"
               }
             ],
             "parallel": true
@@ -39,7 +39,12 @@
               "apps/event-app/src/favicon.ico",
               "apps/event-app/src/assets",
               "apps/event-app/src/manifest.webmanifest",
-              "apps/event-app/src/firebase-messaging-sw.js"
+              "apps/event-app/src/firebase-messaging-sw.js",
+              {
+                "input": "libs/layout/src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
             ],
             "styles": [
               "apps/event-app/src/styles.scss",
@@ -258,6 +263,32 @@
         }
       }
     },
+    "layout": {
+      "root": "libs/layout",
+      "sourceRoot": "libs/layout/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/tsconfig.lib.json",
+              "libs/layout/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/layout/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/layout/jest.config.js",
+            "tsConfig": "libs/layout/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "event-management": {
       "projectType": "application",
       "schematics": {
@@ -280,9 +311,22 @@
             "aot": true,
             "assets": [
               "apps/event-management/src/favicon.ico",
-              "apps/event-management/src/assets"
+              "apps/event-management/src/assets",
+              {
+                "input": "libs/layout/src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
             ],
-            "styles": ["apps/event-management/src/styles.scss"],
+            "styles": [
+              "apps/event-management/src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/@fullcalendar/daygrid/main.css",
+              "node_modules/@fullcalendar/timegrid/main.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -378,6 +422,38 @@
             "tsConfig": ["apps/event-management-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/event-management-e2e/**"]
           }
+        }
+      }
+    },
+    "style": {
+      "projectType": "library",
+      "root": "libs/style",
+      "sourceRoot": "libs/style/src",
+      "prefix": "event-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/style/tsconfig.lib.json",
+              "libs/style/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/style/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/style/jest.config.js",
+            "tsConfig": "libs/style/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/style/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

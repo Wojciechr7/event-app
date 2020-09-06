@@ -41,6 +41,12 @@
     "event-management-e2e": {
       "tags": [],
       "implicitDependencies": ["event-management"]
+    },
+    "layout": {
+      "tags": []
+    },
+    "style": {
+      "tags": []
     }
   }
 }

@@ -1,6 +1,354 @@
 {
   "projectGraph": {
     "nodes": {
+      "event-management-e2e": {
+        "name": "event-management-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/event-management-e2e",
+          "sourceRoot": "apps/event-management-e2e/src",
+          "projectType": "application",
+          "architect": {
+            "e2e": {
+              "builder": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/event-management-e2e/cypress.json",
+                "tsConfig": "apps/event-management-e2e/tsconfig.e2e.json",
+                "devServerTarget": "event-management:serve"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "event-management:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/event-management-e2e/tsconfig.e2e.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/event-management-e2e/**"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/event-management-e2e/cypress.json",
+              "ext": ".json",
+              "mtime": 1599390978357.288
+            },
+            {
+              "file": "apps/event-management-e2e/src/fixtures/example.json",
+              "ext": ".json",
+              "mtime": 1599390978358.2854
+            },
+            {
+              "file": "apps/event-management-e2e/src/integration/app.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599390978359.2827
+            },
+            {
+              "file": "apps/event-management-e2e/src/plugins/index.js",
+              "ext": ".js",
+              "mtime": 1599390978359.2827
+            },
+            {
+              "file": "apps/event-management-e2e/src/support/app.po.ts",
+              "ext": ".ts",
+              "mtime": 1599390978360.28
+            },
+            {
+              "file": "apps/event-management-e2e/src/support/commands.ts",
+              "ext": ".ts",
+              "mtime": 1599390978361.2773
+            },
+            {
+              "file": "apps/event-management-e2e/src/support/index.ts",
+              "ext": ".ts",
+              "mtime": 1599390978361.2773
+            },
+            {
+              "file": "apps/event-management-e2e/tsconfig.e2e.json",
+              "ext": ".json",
+              "mtime": 1599390978357.288
+            },
+            {
+              "file": "apps/event-management-e2e/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1599390978357.288
+            },
+            {
+              "file": "apps/event-management-e2e/tslint.json",
+              "ext": ".json",
+              "mtime": 1599390978356.2908
+            }
+          ]
+        }
+      },
+      "event-management": {
+        "name": "event-management",
+        "type": "app",
+        "data": {
+          "projectType": "application",
+          "schematics": {
+            "@nrwl/angular:component": {
+              "style": "scss"
+            }
+          },
+          "root": "apps/event-management",
+          "sourceRoot": "apps/event-management/src",
+          "prefix": "event-app",
+          "architect": {
+            "build": {
+              "builder": "@angular-devkit/build-angular:browser",
+              "options": {
+                "outputPath": "dist/apps/event-management",
+                "index": "apps/event-management/src/index.html",
+                "main": "apps/event-management/src/main.ts",
+                "polyfills": "apps/event-management/src/polyfills.ts",
+                "tsConfig": "apps/event-management/tsconfig.app.json",
+                "aot": true,
+                "assets": [
+                  "apps/event-management/src/favicon.ico",
+                  "apps/event-management/src/assets",
+                  {
+                    "input": "libs/layout/src/assets",
+                    "glob": "**/*",
+                    "output": "assets"
+                  }
+                ],
+                "styles": [
+                  "apps/event-management/src/styles.scss",
+                  "node_modules/primeicons/primeicons.css",
+                  "node_modules/primeng/resources/themes/nova-light/theme.css",
+                  "node_modules/primeng/resources/primeng.min.css",
+                  "node_modules/@fullcalendar/common/main.css",
+                  "node_modules/@fullcalendar/daygrid/main.css",
+                  "node_modules/@fullcalendar/timegrid/main.css"
+                ],
+                "scripts": []
+              },
+              "configurations": {
+                "production": {
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/event-management/src/environments/environment.ts",
+                      "with": "apps/event-management/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "optimization": true,
+                  "outputHashing": "all",
+                  "sourceMap": false,
+                  "extractCss": true,
+                  "namedChunks": false,
+                  "extractLicenses": true,
+                  "vendorChunk": false,
+                  "buildOptimizer": true,
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "2mb",
+                      "maximumError": "5mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "6kb",
+                      "maximumError": "10kb"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "builder": "@angular-devkit/build-angular:dev-server",
+              "options": {
+                "browserTarget": "event-management:build"
+              },
+              "configurations": {
+                "production": {
+                  "browserTarget": "event-management:build:production"
+                }
+              }
+            },
+            "extract-i18n": {
+              "builder": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "browserTarget": "event-management:build"
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/event-management/tsconfig.app.json",
+                  "apps/event-management/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/event-management/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "apps/event-management/jest.config.js",
+                "tsConfig": "apps/event-management/tsconfig.spec.json",
+                "passWithNoTests": true,
+                "setupFile": "apps/event-management/src/test-setup.ts"
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/event-management/browserslist",
+              "ext": "",
+              "mtime": 1599390978348.3132
+            },
+            {
+              "file": "apps/event-management/jest.config.js",
+              "ext": ".js",
+              "mtime": 1599390978355.2947
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.actions.ts",
+              "ext": ".ts",
+              "mtime": 1599391904030.5059
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.effects.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599391904031.5037
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.effects.ts",
+              "ext": ".ts",
+              "mtime": 1599391904034.495
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.models.ts",
+              "ext": ".ts",
+              "mtime": 1599391904034.495
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.reducer.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599391904035.4937
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.reducer.ts",
+              "ext": ".ts",
+              "mtime": 1599391904036.49
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.selectors.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599391904037.4993
+            },
+            {
+              "file": "apps/event-management/src/app/+state/app.selectors.ts",
+              "ext": ".ts",
+              "mtime": 1599391904037.4993
+            },
+            {
+              "file": "apps/event-management/src/app/app.component.html",
+              "ext": ".html",
+              "mtime": 1599390978353.2993
+            },
+            {
+              "file": "apps/event-management/src/app/app.component.scss",
+              "ext": ".scss",
+              "mtime": 1599390978354.296
+            },
+            {
+              "file": "apps/event-management/src/app/app.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599390978354.296
+            },
+            {
+              "file": "apps/event-management/src/app/app.component.ts",
+              "ext": ".ts",
+              "mtime": 1599390978354.296
+            },
+            {
+              "file": "apps/event-management/src/app/app.module.ts",
+              "ext": ".ts",
+              "mtime": 1599391904038.4849
+            },
+            {
+              "file": "apps/event-management/src/assets/.gitkeep",
+              "ext": "",
+              "mtime": 1599390978351.304
+            },
+            {
+              "file": "apps/event-management/src/environments/environment.prod.ts",
+              "ext": ".ts",
+              "mtime": 1599390978352.3013
+            },
+            {
+              "file": "apps/event-management/src/environments/environment.ts",
+              "ext": ".ts",
+              "mtime": 1599390978352.3013
+            },
+            {
+              "file": "apps/event-management/src/favicon.ico",
+              "ext": ".ico",
+              "mtime": 1599390978347.3164
+            },
+            {
+              "file": "apps/event-management/src/index.html",
+              "ext": ".html",
+              "mtime": 1599390978349.3645
+            },
+            {
+              "file": "apps/event-management/src/main.ts",
+              "ext": ".ts",
+              "mtime": 1599390978350.3066
+            },
+            {
+              "file": "apps/event-management/src/polyfills.ts",
+              "ext": ".ts",
+              "mtime": 1599390978350.3066
+            },
+            {
+              "file": "apps/event-management/src/styles.scss",
+              "ext": ".scss",
+              "mtime": 1599390978351.304
+            },
+            {
+              "file": "apps/event-management/src/test-setup.ts",
+              "ext": ".ts",
+              "mtime": 1599390978356.2908
+            },
+            {
+              "file": "apps/event-management/tsconfig.app.json",
+              "ext": ".json",
+              "mtime": 1599390978348.3132
+            },
+            {
+              "file": "apps/event-management/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1599390978347.3164
+            },
+            {
+              "file": "apps/event-management/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1599390978355.2947
+            },
+            {
+              "file": "apps/event-management/tslint.json",
+              "ext": ".json",
+              "mtime": 1599390978349.3645
+            }
+          ]
+        }
+      },
       "api-interfaces": {
         "name": "api-interfaces",
         "type": "lib",
@@ -198,7 +546,7 @@
                     "command": "ng serve api"
                   },
                   {
-                    "command": "ng serve event-app"
+                    "command": "ng serve event-management"
                   }
                 ],
                 "parallel": true
@@ -217,7 +565,12 @@
                   "apps/event-app/src/favicon.ico",
                   "apps/event-app/src/assets",
                   "apps/event-app/src/manifest.webmanifest",
-                  "apps/event-app/src/firebase-messaging-sw.js"
+                  "apps/event-app/src/firebase-messaging-sw.js",
+                  {
+                    "input": "libs/layout/src/assets",
+                    "glob": "**/*",
+                    "output": "assets"
+                  }
                 ],
                 "styles": [
                   "apps/event-app/src/styles.scss",
@@ -434,7 +787,7 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
               "ext": ".ts",
-              "mtime": 1597699631589.61
+              "mtime": 1599389222857.4827
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
@@ -459,12 +812,12 @@
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.html",
               "ext": ".html",
-              "mtime": 1598691582300.013
+              "mtime": 1599390545013.6501
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.scss",
               "ext": ".scss",
-              "mtime": 1598690388147.478
+              "mtime": 1599390545024.5923
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.spec.ts",
@@ -475,6 +828,26 @@
               "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.ts",
               "ext": ".ts",
               "mtime": 1596285231983.7793
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.html",
+              "ext": ".html",
+              "mtime": 1599390545030.577
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.scss",
+              "ext": ".scss",
+              "mtime": 1599390545017.6113
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599389222855.4868
+            },
+            {
+              "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.ts",
+              "ext": ".ts",
+              "mtime": 1599389936611.4365
             },
             {
               "file": "apps/event-app/src/app/modules/calendar/components/event-details/event-details.component.html",
@@ -514,7 +887,7 @@
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
               "ext": ".html",
-              "mtime": 1597701549638.0178
+              "mtime": 1599392513079.0786
             },
             {
               "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.scss",
@@ -539,17 +912,12 @@
             {
               "file": "apps/event-app/src/app/modules/layout/layout.module.ts",
               "ext": ".ts",
-              "mtime": 1596287721012.5571
+              "mtime": 1599392513097.0227
             },
             {
               "file": "apps/event-app/src/assets/.gitkeep",
               "ext": "",
               "mtime": 1591445784509.4568
-            },
-            {
-              "file": "apps/event-app/src/assets/gifs/gif-cat.gif",
-              "ext": ".gif",
-              "mtime": 1596288997067.5757
             },
             {
               "file": "apps/event-app/src/assets/icons/icon-128x128.png",
@@ -639,7 +1007,7 @@
             {
               "file": "apps/event-app/src/styles.scss",
               "ext": ".scss",
-              "mtime": 1598691690638.0618
+              "mtime": 1599390723356.038
             },
             {
               "file": "apps/event-app/src/test-setup.ts",
@@ -665,6 +1033,117 @@
               "file": "apps/event-app/tslint.json",
               "ext": ".json",
               "mtime": 1591445784507.462
+            }
+          ]
+        }
+      },
+      "layout": {
+        "name": "layout",
+        "type": "lib",
+        "data": {
+          "root": "libs/layout",
+          "sourceRoot": "libs/layout/src",
+          "projectType": "library",
+          "schematics": {},
+          "architect": {
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "libs/layout/tsconfig.lib.json",
+                  "libs/layout/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!libs/layout/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "libs/layout/jest.config.js",
+                "tsConfig": "libs/layout/tsconfig.spec.json",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/layout/jest.config.js",
+              "ext": ".js",
+              "mtime": 1599392139430.41
+            },
+            {
+              "file": "libs/layout/README.md",
+              "ext": ".md",
+              "mtime": 1599392139425.4238
+            },
+            {
+              "file": "libs/layout/src/assets/gifs/gif-cat.gif",
+              "ext": ".gif",
+              "mtime": 1596288997067.5757
+            },
+            {
+              "file": "libs/layout/src/index.ts",
+              "ext": ".ts",
+              "mtime": 1599392139428.4167
+            },
+            {
+              "file": "libs/layout/src/lib/components/sidebar/sidebar.component.html",
+              "ext": ".html",
+              "mtime": 1599393768416.0427
+            },
+            {
+              "file": "libs/layout/src/lib/components/sidebar/sidebar.component.scss",
+              "ext": ".scss",
+              "mtime": 1599392654321.4563
+            },
+            {
+              "file": "libs/layout/src/lib/components/sidebar/sidebar.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599392253287.7407
+            },
+            {
+              "file": "libs/layout/src/lib/components/sidebar/sidebar.component.ts",
+              "ext": ".ts",
+              "mtime": 1599392253291.1328
+            },
+            {
+              "file": "libs/layout/src/lib/layout.module.spec.ts",
+              "ext": ".ts",
+              "mtime": 1599392139429.4124
+            },
+            {
+              "file": "libs/layout/src/lib/layout.module.ts",
+              "ext": ".ts",
+              "mtime": 1599392513091.075
+            },
+            {
+              "file": "libs/layout/src/test-setup.ts",
+              "ext": ".ts",
+              "mtime": 1599392139445.4246
+            },
+            {
+              "file": "libs/layout/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1599392139429.4124
+            },
+            {
+              "file": "libs/layout/tsconfig.lib.json",
+              "ext": ".json",
+              "mtime": 1599392139426.422
+            },
+            {
+              "file": "libs/layout/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1599392139444.425
+            },
+            {
+              "file": "libs/layout/tslint.json",
+              "ext": ".json",
+              "mtime": 1599392139427.419
             }
           ]
         }
@@ -1473,6 +1952,85 @@
       }
     },
     "dependencies": {
+      "event-management-e2e": [
+        {
+          "type": "implicit",
+          "source": "event-management-e2e",
+          "target": "event-management"
+        },
+        {
+          "type": "static",
+          "source": "event-management-e2e",
+          "target": "@nrwl/cypress"
+        }
+      ],
+      "event-management": [
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@ngrx/store"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "rxjs"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@ngrx/effects"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@nrwl/angular"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@ngrx/entity"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@angular/router"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@angular/platform-browser"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@ngrx/store-devtools"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@ngrx/router-store"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "@angular/platform-browser-dynamic"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "zone.js"
+        },
+        {
+          "type": "static",
+          "source": "event-management",
+          "target": "jest-preset-angular"
+        }
+      ],
       "api-interfaces": [
         {
           "type": "static",
@@ -1502,6 +2060,11 @@
           "type": "static",
           "source": "event-app",
           "target": "api-interfaces"
+        },
+        {
+          "type": "static",
+          "source": "event-app",
+          "target": "layout"
         },
         {
           "type": "static",
@@ -1611,6 +2174,28 @@
         {
           "type": "static",
           "source": "event-app",
+          "target": "jest-preset-angular"
+        }
+      ],
+      "layout": [
+        {
+          "type": "static",
+          "source": "layout",
+          "target": "base"
+        },
+        {
+          "type": "static",
+          "source": "layout",
+          "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "layout",
+          "target": "@angular/common"
+        },
+        {
+          "type": "static",
+          "source": "layout",
           "target": "jest-preset-angular"
         }
       ],
@@ -1749,6 +2334,200 @@
     }
   },
   "fileMap": {
+    "event-management-e2e": [
+      {
+        "file": "apps/event-management-e2e/cypress.json",
+        "ext": ".json",
+        "mtime": 1599390978357.288
+      },
+      {
+        "file": "apps/event-management-e2e/src/fixtures/example.json",
+        "ext": ".json",
+        "mtime": 1599390978358.2854
+      },
+      {
+        "file": "apps/event-management-e2e/src/integration/app.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599390978359.2827
+      },
+      {
+        "file": "apps/event-management-e2e/src/plugins/index.js",
+        "ext": ".js",
+        "mtime": 1599390978359.2827
+      },
+      {
+        "file": "apps/event-management-e2e/src/support/app.po.ts",
+        "ext": ".ts",
+        "mtime": 1599390978360.28
+      },
+      {
+        "file": "apps/event-management-e2e/src/support/commands.ts",
+        "ext": ".ts",
+        "mtime": 1599390978361.2773
+      },
+      {
+        "file": "apps/event-management-e2e/src/support/index.ts",
+        "ext": ".ts",
+        "mtime": 1599390978361.2773
+      },
+      {
+        "file": "apps/event-management-e2e/tsconfig.e2e.json",
+        "ext": ".json",
+        "mtime": 1599390978357.288
+      },
+      {
+        "file": "apps/event-management-e2e/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1599390978357.288
+      },
+      {
+        "file": "apps/event-management-e2e/tslint.json",
+        "ext": ".json",
+        "mtime": 1599390978356.2908
+      }
+    ],
+    "event-management": [
+      {
+        "file": "apps/event-management/browserslist",
+        "ext": "",
+        "mtime": 1599390978348.3132
+      },
+      {
+        "file": "apps/event-management/jest.config.js",
+        "ext": ".js",
+        "mtime": 1599390978355.2947
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.actions.ts",
+        "ext": ".ts",
+        "mtime": 1599391904030.5059
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.effects.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599391904031.5037
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.effects.ts",
+        "ext": ".ts",
+        "mtime": 1599391904034.495
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.models.ts",
+        "ext": ".ts",
+        "mtime": 1599391904034.495
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.reducer.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599391904035.4937
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.reducer.ts",
+        "ext": ".ts",
+        "mtime": 1599391904036.49
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.selectors.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599391904037.4993
+      },
+      {
+        "file": "apps/event-management/src/app/+state/app.selectors.ts",
+        "ext": ".ts",
+        "mtime": 1599391904037.4993
+      },
+      {
+        "file": "apps/event-management/src/app/app.component.html",
+        "ext": ".html",
+        "mtime": 1599390978353.2993
+      },
+      {
+        "file": "apps/event-management/src/app/app.component.scss",
+        "ext": ".scss",
+        "mtime": 1599390978354.296
+      },
+      {
+        "file": "apps/event-management/src/app/app.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599390978354.296
+      },
+      {
+        "file": "apps/event-management/src/app/app.component.ts",
+        "ext": ".ts",
+        "mtime": 1599390978354.296
+      },
+      {
+        "file": "apps/event-management/src/app/app.module.ts",
+        "ext": ".ts",
+        "mtime": 1599391904038.4849
+      },
+      {
+        "file": "apps/event-management/src/assets/.gitkeep",
+        "ext": "",
+        "mtime": 1599390978351.304
+      },
+      {
+        "file": "apps/event-management/src/environments/environment.prod.ts",
+        "ext": ".ts",
+        "mtime": 1599390978352.3013
+      },
+      {
+        "file": "apps/event-management/src/environments/environment.ts",
+        "ext": ".ts",
+        "mtime": 1599390978352.3013
+      },
+      {
+        "file": "apps/event-management/src/favicon.ico",
+        "ext": ".ico",
+        "mtime": 1599390978347.3164
+      },
+      {
+        "file": "apps/event-management/src/index.html",
+        "ext": ".html",
+        "mtime": 1599390978349.3645
+      },
+      {
+        "file": "apps/event-management/src/main.ts",
+        "ext": ".ts",
+        "mtime": 1599390978350.3066
+      },
+      {
+        "file": "apps/event-management/src/polyfills.ts",
+        "ext": ".ts",
+        "mtime": 1599390978350.3066
+      },
+      {
+        "file": "apps/event-management/src/styles.scss",
+        "ext": ".scss",
+        "mtime": 1599390978351.304
+      },
+      {
+        "file": "apps/event-management/src/test-setup.ts",
+        "ext": ".ts",
+        "mtime": 1599390978356.2908
+      },
+      {
+        "file": "apps/event-management/tsconfig.app.json",
+        "ext": ".json",
+        "mtime": 1599390978348.3132
+      },
+      {
+        "file": "apps/event-management/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1599390978347.3164
+      },
+      {
+        "file": "apps/event-management/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1599390978355.2947
+      },
+      {
+        "file": "apps/event-management/tslint.json",
+        "ext": ".json",
+        "mtime": 1599390978349.3645
+      }
+    ],
     "api-interfaces": [
       {
         "file": "libs/api-interfaces/jest.config.js",
@@ -1982,7 +2761,7 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/calendar.module.ts",
         "ext": ".ts",
-        "mtime": 1597699631589.61
+        "mtime": 1599389222857.4827
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/calendar/calendar.component.html",
@@ -2007,12 +2786,12 @@
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.html",
         "ext": ".html",
-        "mtime": 1598691582300.013
+        "mtime": 1599390545013.6501
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.scss",
         "ext": ".scss",
-        "mtime": 1598690388147.478
+        "mtime": 1599390545024.5923
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.spec.ts",
@@ -2023,6 +2802,26 @@
         "file": "apps/event-app/src/app/modules/calendar/components/day-details/day-details.component.ts",
         "ext": ".ts",
         "mtime": 1596285231983.7793
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.html",
+        "ext": ".html",
+        "mtime": 1599390545030.577
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.scss",
+        "ext": ".scss",
+        "mtime": 1599390545017.6113
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599389222855.4868
+      },
+      {
+        "file": "apps/event-app/src/app/modules/calendar/components/event-card/event-card.component.ts",
+        "ext": ".ts",
+        "mtime": 1599389936611.4365
       },
       {
         "file": "apps/event-app/src/app/modules/calendar/components/event-details/event-details.component.html",
@@ -2062,7 +2861,7 @@
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.html",
         "ext": ".html",
-        "mtime": 1597701549638.0178
+        "mtime": 1599392513079.0786
       },
       {
         "file": "apps/event-app/src/app/modules/layout/components/layout/layout.component.scss",
@@ -2087,17 +2886,12 @@
       {
         "file": "apps/event-app/src/app/modules/layout/layout.module.ts",
         "ext": ".ts",
-        "mtime": 1596287721012.5571
+        "mtime": 1599392513097.0227
       },
       {
         "file": "apps/event-app/src/assets/.gitkeep",
         "ext": "",
         "mtime": 1591445784509.4568
-      },
-      {
-        "file": "apps/event-app/src/assets/gifs/gif-cat.gif",
-        "ext": ".gif",
-        "mtime": 1596288997067.5757
       },
       {
         "file": "apps/event-app/src/assets/icons/icon-128x128.png",
@@ -2187,7 +2981,7 @@
       {
         "file": "apps/event-app/src/styles.scss",
         "ext": ".scss",
-        "mtime": 1598691690638.0618
+        "mtime": 1599390723356.038
       },
       {
         "file": "apps/event-app/src/test-setup.ts",
@@ -2213,6 +3007,83 @@
         "file": "apps/event-app/tslint.json",
         "ext": ".json",
         "mtime": 1591445784507.462
+      }
+    ],
+    "layout": [
+      {
+        "file": "libs/layout/jest.config.js",
+        "ext": ".js",
+        "mtime": 1599392139430.41
+      },
+      {
+        "file": "libs/layout/README.md",
+        "ext": ".md",
+        "mtime": 1599392139425.4238
+      },
+      {
+        "file": "libs/layout/src/assets/gifs/gif-cat.gif",
+        "ext": ".gif",
+        "mtime": 1596288997067.5757
+      },
+      {
+        "file": "libs/layout/src/index.ts",
+        "ext": ".ts",
+        "mtime": 1599392139428.4167
+      },
+      {
+        "file": "libs/layout/src/lib/components/sidebar/sidebar.component.html",
+        "ext": ".html",
+        "mtime": 1599393768416.0427
+      },
+      {
+        "file": "libs/layout/src/lib/components/sidebar/sidebar.component.scss",
+        "ext": ".scss",
+        "mtime": 1599392654321.4563
+      },
+      {
+        "file": "libs/layout/src/lib/components/sidebar/sidebar.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599392253287.7407
+      },
+      {
+        "file": "libs/layout/src/lib/components/sidebar/sidebar.component.ts",
+        "ext": ".ts",
+        "mtime": 1599392253291.1328
+      },
+      {
+        "file": "libs/layout/src/lib/layout.module.spec.ts",
+        "ext": ".ts",
+        "mtime": 1599392139429.4124
+      },
+      {
+        "file": "libs/layout/src/lib/layout.module.ts",
+        "ext": ".ts",
+        "mtime": 1599392513091.075
+      },
+      {
+        "file": "libs/layout/src/test-setup.ts",
+        "ext": ".ts",
+        "mtime": 1599392139445.4246
+      },
+      {
+        "file": "libs/layout/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1599392139429.4124
+      },
+      {
+        "file": "libs/layout/tsconfig.lib.json",
+        "ext": ".json",
+        "mtime": 1599392139426.422
+      },
+      {
+        "file": "libs/layout/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1599392139444.425
+      },
+      {
+        "file": "libs/layout/tslint.json",
+        "ext": ".json",
+        "mtime": 1599392139427.419
       }
     ],
     "base": [

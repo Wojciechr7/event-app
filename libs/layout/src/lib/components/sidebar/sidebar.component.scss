@@ -1,0 +1,112 @@
+.background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: .8;
+  }
+
+  .avatar-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: auto;
+    }
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #312450;
+    font-size: 0.65em;
+    box-shadow: inset 0 0 10px #ffffff;
+  }
+
+  .nav {
+    text-align: right;
+    font-weight: bold;
+    margin: 0 25px;
+  }
+
+  .nav ul {
+    list-style: none;
+    padding-left: 20px;
+
+    li {
+      position: relative;
+
+      p {
+        line-height: 1.5em;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.28em;
+        color: rgba(#FFF, 0.35);
+        display: block;
+        transition: all ease-out 300ms;
+        font-size: 1.2em;
+      }
+
+      &.active p {
+        color: white;
+      }
+
+      &:not(.active)::after {
+        opacity: 0.2;
+      }
+
+      &:not(.active):hover p {
+        color: rgba(#FFF, 0.75);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.2em;
+        background: black;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(to right, #5e42a6, #b74e91)
+      }
+    }
+  }
+
+  .twitter {
+    position: relative;
+    width: 75%;
+    float: right;
+    height: 100vh;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    a {
+      position: relative;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    p {
+      text-transform: uppercase;
+      font-size: 1em;
+      letter-spacing: 0.1em;
+      color: #FFF;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  }
+
+
