@@ -60,7 +60,7 @@ export class CalendarComponent implements OnInit {
 
       const ref = this.dialogService.open(DayDetailsComponent, {
         header: 'Day events',
-        width: '50%',
+        width: '70%',
         styleClass: 'base-dialog-style'
       });
     }

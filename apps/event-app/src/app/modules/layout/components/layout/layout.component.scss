@@ -1,7 +1,7 @@
 .layout-container {
   width: 100%;
   height: 100vh;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serf;
 
   .main-container {
     background: url('/assets/images/pixel-heart.png') repeat 100% 100%;
@@ -15,7 +15,7 @@
     opacity: .8;
   }
 
-  .avatar-container {
+  /*.avatar-container {
     width: 250px;
     height: 250px;
     display: flex;
@@ -116,6 +116,6 @@
       font-weight: bold;
       margin-top: 20px;
     }
-  }
+  }*/
 
 }

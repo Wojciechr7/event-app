@@ -17,18 +17,14 @@ import * as fromApp from './+state/app.reducer';
 import { AppEffects } from './+state/app.effects';
 import { NxModule } from "@nrwl/angular";
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import {FullCalendarModule} from 'primeng/fullcalendar';
+import { FullCalendarModule } from 'primeng/fullcalendar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { DialogModule } from "primeng/dialog";
-import {DynamicDialogModule, DialogService} from 'primeng/dynamicdialog';
 import { BaseModule } from "../../../../libs/base/src/lib/base.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BaseModule,
-    DialogModule,
-    DynamicDialogModule,
     FullCalendarModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -74,7 +70,7 @@ import { BaseModule } from "../../../../libs/base/src/lib/base.module";
     StoreRouterConnectingModule.forRoot()
   ],
   providers: [
-    DialogService
+
   ],
   bootstrap: [AppComponent],
 })
