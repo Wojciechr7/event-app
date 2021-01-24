@@ -14,7 +14,7 @@ export class EventController {
   }
 
   @Post()
-  async addEvent(@Res() res, @Body() createEventDTO: CreateEventDTO) {
+  async addEvent(@Res() res, @Body() createEventDTO: CreateEventDTO): Promise<EventDTO> {
     if (incorrectDateValidator(createEventDTO.day, createEventDTO.month)) {
       return res.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
         message: "Wrong date"
@@ -22,11 +22,7 @@ export class EventController {
     }
 
     const event = await this.eventService.addEvent(createEventDTO);
-
-    return res.status(HttpStatus.OK).json({
-      message: "Event has been created successfully",
-      event
-    });
+    return res.status(HttpStatus.OK).json(event);
   }
 
   @Put(':eventId')
@@ -39,15 +35,19 @@ export class EventController {
 
     const event = await this.eventService.updateEvent(eventId, createEventDTO);
 
-    return res.status(HttpStatus.OK).json({
-      message: "Event has been updated successfully",
-      event
-    })
+    return res.status(HttpStatus.OK).json(event);
+  }
+
+  @Delete(':eventId')
+  async deleteEvent(@Res() res, @Param('eventId') eventId: string) {
+    const event = await this.eventService.deleteEvent(eventId);
+    return res.status(HttpStatus.OK).json(eventId);
   }
 
   @Delete()
   deleteAllData(): string {
-    return this.eventService.deleteAll();
+    //return this.eventService.deleteAll();
+    return 'f';
   }
 
 }

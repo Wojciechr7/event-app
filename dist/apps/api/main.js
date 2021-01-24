@@ -218,7 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/event/event.service */ "./apps/api/src/app/modules/event/services/event/event.service.ts");
 /* harmony import */ var _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../libs/api-interfaces/src/lib/dto/create-event.dto */ "./libs/api-interfaces/src/lib/dto/create-event.dto.ts");
 /* harmony import */ var _libs_base_src_lib_validators_incorrect_date_validator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../libs/base/src/lib/validators/incorrect-date.validator */ "./libs/base/src/lib/validators/incorrect-date.validator.ts");
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 
 
 
@@ -239,10 +239,7 @@ let EventController = class EventController {
                 });
             }
             const event = yield this.eventService.addEvent(createEventDTO);
-            return res.status(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].OK).json({
-                message: "Event has been created successfully",
-                event
-            });
+            return res.status(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].OK).json(event);
         });
     }
     updateEvent(res, eventId, createEventDTO) {
@@ -253,14 +250,18 @@ let EventController = class EventController {
                 });
             }
             const event = yield this.eventService.updateEvent(eventId, createEventDTO);
-            return res.status(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].OK).json({
-                message: "Event has been updated successfully",
-                event
-            });
+            return res.status(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].OK).json(event);
+        });
+    }
+    deleteEvent(res, eventId) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const event = yield this.eventService.deleteEvent(eventId);
+            return res.status(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].OK).json(eventId);
         });
     }
     deleteAllData() {
-        return this.eventService.deleteAll();
+        //return this.eventService.deleteAll();
+        return 'f';
     }
 };
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -274,15 +275,22 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Res"])()), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, typeof (_b = typeof _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"] !== "undefined" && _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"]) === "function" ? _b : Object]),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
 ], EventController.prototype, "addEvent", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Put"])(':eventId'),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Res"])()), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Param"])('eventId')), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, String, typeof (_c = typeof _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"] !== "undefined" && _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"]) === "function" ? _c : Object]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, String, typeof (_d = typeof _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"] !== "undefined" && _libs_api_interfaces_src_lib_dto_create_event_dto__WEBPACK_IMPORTED_MODULE_3__["CreateEventDTO"]) === "function" ? _d : Object]),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
 ], EventController.prototype, "updateEvent", null);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Delete"])(':eventId'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Res"])()), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Param"])('eventId')),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, String]),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", Promise)
+], EventController.prototype, "deleteEvent", null);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Delete"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
@@ -291,7 +299,7 @@ Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], EventController.prototype, "deleteAllData", null);
 EventController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('event'),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_d = typeof _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"] !== "undefined" && _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"]) === "function" ? _d : Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_e = typeof _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"] !== "undefined" && _services_event_event_service__WEBPACK_IMPORTED_MODULE_2__["EventService"]) === "function" ? _e : Object])
 ], EventController);
 
 
@@ -407,7 +415,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_mongoose__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 var _a, _b;
+
 
 
 
@@ -419,7 +430,10 @@ let EventService = class EventService {
         this.httpService = httpService;
     }
     getAllEvents() {
-        return this.eventModel.find().exec();
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const allEvents = yield this.eventModel.find().exec();
+            return allEvents;
+        });
     }
     deleteAll() {
         const events = this.eventModel.deleteMany({ __v: 0 });
@@ -437,12 +451,41 @@ let EventService = class EventService {
             return newEvent.save();
         });
     }
+    deleteEvent(eventId) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.eventModel.findByIdAndDelete(eventId);
+        });
+    }
     createNotification() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const momentDate = moment__WEBPACK_IMPORTED_MODULE_5__();
+            const actualMonth = momentDate.get('month') + 1;
+            const actualDay = momentDate.get('D');
+            const allEvents = yield this.eventModel.find().exec();
+            let nextEvent;
+            allEvents.forEach((event) => {
+                if (event.month >= actualMonth) {
+                    if (event.day >= actualDay || (event.month > actualMonth)) {
+                        if (!nextEvent) {
+                            nextEvent = event;
+                        }
+                        else {
+                            if (nextEvent.month > event.month) {
+                                nextEvent = event;
+                            }
+                            else if (nextEvent.month === event.month) {
+                                if (nextEvent.day > event.day) {
+                                    nextEvent = event;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
             this.httpService.post('https://fcm.googleapis.com/fcm/send', {
                 "notification": {
-                    "title": "cześć",
-                    "body": "tu robcio :) v2"
+                    "title": "Powiadomienie o nadchodzącym wydarzeniu",
+                    "body": `Wydarzenie: ${nextEvent ? nextEvent.name : 'brak'}`
                 },
                 "to": "/topics/all"
             }, {

@@ -14,12 +14,18 @@
       <th [pSortableColumn]="col.field" *ngFor="let col of columns">
         {{col.header}} <p-sortIcon field="name"></p-sortIcon>
       </th>
+      <th *ngIf="tableSettings && tableSettings.actions && tableSettings.actions.length">
+        Actions
+      </th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-car let-columns="columns">
     <tr>
       <td *ngFor="let col of columns">
         {{car[col.field]}}
+      </td>
+      <td *ngIf="tableSettings && tableSettings.actions && tableSettings.actions.length">
+        <button *ngFor="let action of tableSettings.actions" pButton pRipple [icon]="action.icon" class="p-button-rounded p-mr-2" [class]="action.color" (click)="action.onClick(car)"></button>
       </td>
     </tr>
   </ng-template>

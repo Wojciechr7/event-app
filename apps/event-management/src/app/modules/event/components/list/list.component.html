@@ -1,8 +1,10 @@
+<p-confirmDialog></p-confirmDialog>
+
 <p-card>
   <p-toolbar styleClass="p-mb-4">
     <button pButton label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openAddNewDialog()"></button>
   </p-toolbar>
 
-  <event-app-table [data]="events$ | async" [tableFields]="tableFields$ | async"></event-app-table>
+  <event-app-table [data]="events$ | async" [tableFields]="tableFields$ | async" [tableSettings]="tableSettings"></event-app-table>
 </p-card>
 

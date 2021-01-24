@@ -20,5 +20,5 @@ export class CreateEventDTO {
   @IsString()
   condition: string;
 
-  created_at: Date;
+  created_at?: Date;
 }

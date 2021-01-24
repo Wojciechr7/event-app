@@ -1,8 +1,8 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import {createReducer, on, Action} from '@ngrx/store';
+import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 import * as EventActions from './event.actions';
-import { TableFieldModel } from "../../../../../../../libs/base/src/lib/models/table-field.model";
-import { EventDTO } from "../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
+import {TableFieldModel} from "../../../../../../../libs/base/src/lib/models/table-field.model";
+import {EventDTO} from "../../../../../../../libs/api-interfaces/src/lib/dto/event.dto";
 
 export const EVENT_FEATURE_KEY = 'event';
 
@@ -17,9 +17,7 @@ export interface EventPartialState {
   readonly [EVENT_FEATURE_KEY]: State;
 }
 
-export const eventAdapter: EntityAdapter<EventDTO> = createEntityAdapter<
-  EventDTO
->();
+export const eventAdapter: EntityAdapter<EventDTO> = createEntityAdapter<EventDTO>();
 
 export const initialState: State = eventAdapter.getInitialState({
   loaded: false,
@@ -41,13 +39,37 @@ export const initialState: State = eventAdapter.getInitialState({
 
 const eventReducer = createReducer(
   initialState,
-  on(EventActions.loadCalendarSuccess, (state, { calendar }) =>
-    eventAdapter.setAll(calendar, { ...state, loaded: true })
+  on(EventActions.loadCalendarSuccess, (state, {calendar}) =>
+    eventAdapter.setAll(calendar, {...state, loaded: true})
   ),
-  on(EventActions.loadCalendarFailure, (state, { error }) => ({
+  on(EventActions.loadCalendarFailure, (state, {error}) => ({
     ...state,
     error,
-  }))
+  })),
+
+  on(EventActions.addEventSuccess, (state, {event}) =>
+    eventAdapter.setOne(event, state)
+  ),
+  on(EventActions.addEventFailure, (state, {error}) => ({
+    ...state,
+    error,
+  })),
+
+  on(EventActions.editEventSuccess, (state, {event}) =>
+    eventAdapter.updateOne(event, state)
+  ),
+  on(EventActions.editEventFailure, (state, {error}) => ({
+    ...state,
+    error,
+  })),
+
+  on(EventActions.deleteEventSuccess, (state, {id}) =>
+    eventAdapter.removeOne(id, state)
+  ),
+  on(EventActions.deleteEventFailure, (state, {error}) => ({
+    ...state,
+    error,
+  })),
 );
 
 export function reducer(state: State | undefined, action: Action) {

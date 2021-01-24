@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TableFieldModel } from "../../models/table-field.model";
+import {TableSettingsModel} from "../../models/table-settings.model";
 
 @Component({
   selector: 'event-app-table',
@@ -9,6 +10,8 @@ import { TableFieldModel } from "../../models/table-field.model";
 export class TableComponent implements OnInit {
 
   @Input() tableFields: TableFieldModel[];
+  @Input() tableSettings: TableSettingsModel<any>;
+
   @Input() data: any[];
 
   get GlobalFilterFields(): string[] {

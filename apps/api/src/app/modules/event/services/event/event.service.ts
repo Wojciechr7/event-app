@@ -4,6 +4,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { EventModel } from "../../models/event.model";
 import { CreateEventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dto/create-event.dto";
 import { catchError } from "rxjs/operators";
+import * as moment from "moment";
 
 @Injectable()
 export class EventService {
@@ -13,8 +14,9 @@ export class EventService {
   ) {
   }
 
-  getAllEvents(): Promise<EventModel[]> {
-    return this.eventModel.find().exec();
+  async getAllEvents(): Promise<EventModel[]> {
+    const allEvents = await this.eventModel.find().exec();
+    return allEvents;
   }
 
   deleteAll() {
@@ -33,12 +35,43 @@ export class EventService {
     return newEvent.save();
   }
 
+  async deleteEvent(eventId: string): Promise<EventModel> {
+    return this.eventModel.findByIdAndDelete(eventId);
+  }
+
   async createNotification(): Promise<any> {
+    const momentDate = moment();
+
+    const actualMonth: number = momentDate.get('month') + 1;
+    const actualDay: number = momentDate.get('D');
+
+    const allEvents = await this.eventModel.find().exec();
+
+    let nextEvent: EventModel;
+
+    allEvents.forEach((event: EventModel) => {
+      if (event.month >= actualMonth) {
+        if (event.day >= actualDay || (event.month > actualMonth)) {
+          if (!nextEvent) {
+            nextEvent = event;
+          } else {
+            if (nextEvent.month > event.month) {
+              nextEvent = event;
+            } else if (nextEvent.month === event.month) {
+              if (nextEvent.day > event.day) {
+                nextEvent = event;
+              }
+            }
+          }
+        }
+      }
+    });
+
     this.httpService.post('https://fcm.googleapis.com/fcm/send',
       {
         "notification": {
-          "title": "cześć",
-          "body": "tu robcio :) v2"
+          "title": "Powiadomienie o nadchodzącym wydarzeniu",
+          "body": `Wydarzenie: ${nextEvent ? nextEvent.name : 'brak'}`
         },
         "to": "/topics/all"
       },
