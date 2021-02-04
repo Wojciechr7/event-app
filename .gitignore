@@ -39,3 +39,4 @@ Thumbs.db
 
 firebase-messaging-sw.js
 firebase-config.ts
+connection-strings.ts

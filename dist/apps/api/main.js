@@ -160,7 +160,8 @@ let AppModule = class AppModule {
 AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [
-            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__["MongooseModule"].forRoot('mongodb://localhost/event-app'),
+            //MongooseModule.forRoot('mongodb://localhost/event-app'),
+            _nestjs_mongoose__WEBPACK_IMPORTED_MODULE_4__["MongooseModule"].forRoot('mongodb+srv://hr5t5@windowsliv:Zxasqw12robertw2@cluster0.sbmqk.mongodb.net/baza?retryWrites=true&w=majority'),
             _modules_event_event_module__WEBPACK_IMPORTED_MODULE_5__["EventModule"]
         ],
         controllers: [_app_controller__WEBPACK_IMPORTED_MODULE_2__["AppController"]],

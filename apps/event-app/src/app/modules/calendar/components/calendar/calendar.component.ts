@@ -12,6 +12,7 @@ import { EventDTO } from "../../../../../../../../libs/api-interfaces/src/lib/dt
 import { EventDetailsComponent } from "../event-details/event-details.component";
 import { DialogService, DynamicDialogConfig } from "primeng";
 import { DayDetailsComponent } from "../day-details/day-details.component";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'event-app-calendar',
@@ -32,7 +33,9 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(CalendarActions.loadCalendar());
-    this.events$ = this.store.pipe(select(getAllCalendar));
+    this.events$ = this.store.pipe(select(getAllCalendar), tap(v => {
+      console.log(v)
+    }));
 
     this.options = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
